@@ -3,8 +3,12 @@
 ## Reporting a Vulnerability
 
 If you believe you've found a security vulnerability in swarmweave, please
-**do not** open a public GitHub issue. Instead, email the maintainers at the
-contact address listed in the repository's `README.md` with:
+**do not** open a public GitHub issue. Instead, use GitHub's private
+vulnerability reporting:
+
+**[Report a vulnerability](https://github.com/manav8498/swarmweave/security/advisories/new)**
+
+Include:
 
 - A description of the vulnerability
 - Steps to reproduce (a minimal proof-of-concept is ideal)
