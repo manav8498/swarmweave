@@ -61,6 +61,7 @@ The whole public API is three primitives — `SharedContext`, `Supervisor`, `Wor
 - Your task is a single LLM call — use the OpenAI SDK directly
 - You need production observability (traces, eval datasets, dashboards) — use Langfuse or LangSmith
 - You need cost/rate guardrails at the proxy level — use LiteLLM
+- You need Anthropic/Claude support today — v0.1 is OpenAI API only; Anthropic adapter is planned for v0.2
 - Your existing setup works and you're not feeling pain around worker coordination or debugging — switching cost isn't worth it
 
 This library is a focused scaffold, not a replacement for the broader ecosystem.
