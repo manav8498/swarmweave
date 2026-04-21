@@ -26,7 +26,7 @@ LIGHT = "#eef2f7"
 
 def main() -> None:
     fig, ax = plt.subplots(figsize=(10, 5.8), dpi=160)
-    ax.set_xlim(-8, 108)   # extra margins so side labels aren't clipped
+    ax.set_xlim(-8, 108)  # extra margins so side labels aren't clipped
     ax.set_ylim(0, 62)
     ax.axis("off")
 
