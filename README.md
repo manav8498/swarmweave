@@ -2,11 +2,14 @@
 
 **Multi-agent swarms you can actually see, debug, and improve.**
 
+[![CI](https://github.com/manav8498/swarmweave/actions/workflows/ci.yml/badge.svg)](https://github.com/manav8498/swarmweave/actions/workflows/ci.yml)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
 [![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
 
 Sequential or parallel multi-agent orchestration on top of LangGraph + the OpenAI API, with three capabilities that most multi-agent frameworks don't bundle together:
+
+> **What this is not:** not a single-agent memory plugin, not a production observability platform (see [Langfuse](https://langfuse.com)), not a model router (see [LiteLLM](https://litellm.ai)). swarmweave is a focused scaffold for building multi-agent pipelines where workers need to see each other's work — and you need to see what's happening.
 
 1. **Live terminal dashboard** — `swarmweave watch your_swarm.py` opens a split-screen Rich TUI that streams worker status, tool calls, shared-context flow, and accumulating token cost in real time. No more `print`-statement debugging.
 2. **Self-improving via lessons** — every successful run can distill 1-5 transferable lessons. The next similar run pre-loads them into shared context. Plain JSONL under `~/.swarmweave/lessons/`, fully editable, no telemetry.
@@ -58,7 +61,7 @@ The whole public API is three primitives — `SharedContext`, `Supervisor`, `Wor
 - Your task is a single LLM call — use the OpenAI SDK directly
 - You need production observability (traces, eval datasets, dashboards) — use Langfuse or LangSmith
 - You need cost/rate guardrails at the proxy level — use LiteLLM
-- You've already built on CrewAI/LangGraph/AutoGen and it works — switching cost isn't worth it
+- Your existing setup works and you're not feeling pain around worker coordination or debugging — switching cost isn't worth it
 
 This library is a focused scaffold, not a replacement for the broader ecosystem.
 
@@ -132,7 +135,14 @@ swarmweave watch examples/03_support_triage_swarm/main.py
 
 A 20-task multi-hop benchmark comparing **isolated-context** (each worker has private memory) against **shared-context** (workers read each other's findings), sequential mode, same workers, same model, same tools — only the backend differs.
 
-**Across two runs of the same benchmark, both modes landed in the 85–100% accuracy range, essentially tied within the variance of `gpt-4o-mini` outputs.** For a concrete qualitative demonstration of where shared context changes worker behavior (e.g., verifier correcting resolver's phrasing based on policy), run `examples/03_support_triage_swarm/main.py`, or use `scripts/real_world_review.py` to A/B test both modes against your own codebase.
+What shared context demonstrably changes in each run:
+- **Worker B reads Worker A's reasoning**, not just the original task — a resolver building on a classifier's output uses the actual classification rationale, not a re-statement of the user's query.
+- **Verifiers correct based on actual prior work** — a policy-check step reads what the resolver drafted and cites specific lines, instead of checking a hypothetical.
+- **Lessons accumulate across runs** — the second run of the same task pre-loads distilled findings from the first, compressing warm-up time.
+
+On raw accuracy: across runs on this 20-task benchmark at `gpt-4o-mini`, both modes landed in the 85–100% range — essentially tied within model variance. Simple multi-hop factual accuracy is not where the coordination wins show up. The wins are in **reasoning chain quality**, **less duplicated work between workers**, and **verifier precision** — qualitative differences the TUI makes visible and the accuracy rubric only partially captures.
+
+To see the difference concretely, run `examples/03_support_triage_swarm/main.py` and watch the shared-context flow panel. Or use `scripts/real_world_review.py` to A/B test both modes against your own codebase.
 
 Reproduce with:
 
@@ -185,6 +195,8 @@ Requirements: Python 3.11+, an OpenAI API key. Default model is `gpt-4o-mini` �
 
 We sit *on top of* LangGraph, not against it. Bring an existing LangGraph app and compose `build_swarm_graph(supervisor)` as a sub-graph.
 
+> For persistent memory of a single agent's session, see also claude-mem. For cross-run learning in a different orchestration style, see agent-swarm. swarmweave differs in the retrieval model (embedding + recency vs. flat append) and the shared-context layer that connects workers *within* a run, not just across runs.
+
 ## Documentation
 
 - [`docs/architecture.md`](docs/architecture.md) — the thesis, why shared context matters
@@ -195,8 +207,8 @@ We sit *on top of* LangGraph, not against it. Bring an existing LangGraph app an
 ## Roadmap
 
 - **v0.1** (this release) — `LocalBackend` with embeddings + Jaccard fallback, LangGraph adapter, sequential/parallel modes, live TUI, `Mentor`/`LessonBook`, `EventBus`, four example swarms, reproducible benchmark.
-- **v0.2** — OpenAI Agents SDK adapter, Anthropic Agent SDK adapter, MCP-tool support in `Worker`, `swarmweave replay <session>`, production-grade cost guardrails.
-- **v0.3** — durable cross-process sessions, structured per-worker output schemas, cloud backend.
+- **v0.2** — OpenAI Agents SDK adapter and `swarmweave replay <session>` for post-run inspection.
+- **v0.3** — Anthropic Agent SDK adapter, MCP-tool support in `Worker`, durable cross-process sessions, production-grade cost guardrails.
 
 ## Contributing
 

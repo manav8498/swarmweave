@@ -25,14 +25,14 @@ LIGHT = "#eef2f7"
 
 
 def main() -> None:
-    fig, ax = plt.subplots(figsize=(9, 5.4), dpi=160)
-    ax.set_xlim(0, 100)
-    ax.set_ylim(0, 60)
+    fig, ax = plt.subplots(figsize=(10, 5.8), dpi=160)
+    ax.set_xlim(-8, 108)   # extra margins so side labels aren't clipped
+    ax.set_ylim(0, 62)
     ax.axis("off")
 
     # Supervisor box (top)
     sup = patches.FancyBboxPatch(
-        (35, 47),
+        (35, 50),
         30,
         9,
         boxstyle="round,pad=0.2,rounding_size=1.0",
@@ -43,7 +43,7 @@ def main() -> None:
     ax.add_patch(sup)
     ax.text(
         50,
-        51.5,
+        54.5,
         "Supervisor",
         ha="center",
         va="center",
@@ -57,7 +57,7 @@ def main() -> None:
     worker_names = ["Worker A", "Worker B", "Worker C"]
     for x, name in zip(worker_x, worker_names, strict=True):
         box = patches.FancyBboxPatch(
-            (x, 24),
+            (x, 27),
             20,
             8,
             boxstyle="round,pad=0.2,rounding_size=1.0",
@@ -66,11 +66,11 @@ def main() -> None:
             facecolor="white",
         )
         ax.add_patch(box)
-        ax.text(x + 10, 28, name, ha="center", va="center", color=CHARCOAL, fontsize=11)
+        ax.text(x + 10, 31, name, ha="center", va="center", color=CHARCOAL, fontsize=11)
 
     # Shared context (bottom)
     sc = patches.FancyBboxPatch(
-        (10, 4),
+        (10, 5),
         80,
         9,
         boxstyle="round,pad=0.2,rounding_size=1.0",
@@ -81,7 +81,7 @@ def main() -> None:
     ax.add_patch(sc)
     ax.text(
         50,
-        9,
+        9.5,
         "SharedContext  →  Backend (Local | custom)",
         ha="center",
         va="center",
@@ -94,30 +94,55 @@ def main() -> None:
     for x in worker_x:
         ax.annotate(
             "",
-            xy=(x + 10, 32.5),
-            xytext=(50, 47),
+            xy=(x + 10, 35),
+            xytext=(50, 50),
             arrowprops=dict(arrowstyle="->", color=CHARCOAL, lw=1.0),
         )
-    ax.text(72, 40, "decompose +\nfan-out", color=CHARCOAL, fontsize=8, style="italic")
+    # Label sits to the right of the rightmost arrow, clear of all boxes
+    ax.text(74, 44, "decompose +\nfan-out", color=CHARCOAL, fontsize=8, style="italic")
 
-    # Workers ↔ shared context (read/write)
+    # Workers ↔ SharedContext (read/write) — bidirectional
     for x in worker_x:
         ax.annotate(
             "",
-            xy=(x + 10, 13),
-            xytext=(x + 10, 24),
+            xy=(x + 10, 14),
+            xytext=(x + 10, 27),
             arrowprops=dict(arrowstyle="<->", color=ACCENT, lw=1.2),
         )
-    ax.text(73, 18, "read/write\nshared context", color=ACCENT, fontsize=8, style="italic")
+    # Label in the right margin, between the worker row and SharedContext
+    ax.text(
+        92,
+        19,
+        "read/write\nshared context",
+        color=ACCENT,
+        fontsize=8,
+        style="italic",
+        ha="left",
+    )
 
-    # Shared context → supervisor (synthesis input)
+    # SharedContext → Supervisor (synthesis) — curved LEFT to avoid workers
     ax.annotate(
         "",
-        xy=(50, 47),
-        xytext=(50, 13),
-        arrowprops=dict(arrowstyle="->", color=GREY, lw=0.9, linestyle="dashed"),
+        xy=(38, 50),
+        xytext=(10, 14),
+        arrowprops=dict(
+            arrowstyle="->",
+            color=GREY,
+            lw=0.9,
+            linestyle="dashed",
+            connectionstyle="arc3,rad=0.35",
+        ),
     )
-    ax.text(52, 30, "synthesize\n(reads full trace)", color=GREY, fontsize=8, style="italic")
+    # Label in the left margin
+    ax.text(
+        -7,
+        32,
+        "synthesize\n(reads full\ntrace)",
+        color=GREY,
+        fontsize=8,
+        style="italic",
+        ha="left",
+    )
 
     out = Path(__file__).parent / "architecture.png"
     fig.savefig(out, dpi=160, bbox_inches="tight", facecolor="white")
