@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use swarmweave in academic or published work, please cite it as below."
+title: "swarmweave: multi-agent swarms with shared, outcome-optimized context"
+authors:
+  - name: "Manav Patel"
+    alias: "manav8498"
+type: software
+version: "0.1.0"
+license: "Apache-2.0"
+repository-code: "https://github.com/manav8498/swarmweave"
+url: "https://github.com/manav8498/swarmweave"
+keywords:
+  - multi-agent systems
+  - large language models
+  - agent orchestration
+  - shared context
+  - langgraph
+  - python

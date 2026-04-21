@@ -1,0 +1,587 @@
+{
+  "model": "gpt-4o-mini",
+  "n_tasks": 20,
+  "n_workers_per_swarm": 3,
+  "isolated": {
+    "n": 20,
+    "passes": 18,
+    "accuracy": 0.9,
+    "input_tokens": 62816,
+    "output_tokens": 14221,
+    "wall_clock": 330.19
+  },
+  "shared": {
+    "n": 20,
+    "passes": 17,
+    "accuracy": 0.85,
+    "input_tokens": 66116,
+    "output_tokens": 12904,
+    "wall_clock": 340.02
+  },
+  "per_task": {
+    "isolated": [
+      {
+        "task_id": "t01",
+        "answer": "At ICML 2025, researchers Mei Tan and Felix Bauer co-authored a paper titled \"Sparse Episodic Recall in Long-Horizon Agents.\" The main claim of their paper is that sparse episodic recall outperforms dense retrieval for tasks longer than 10,000 tokens, as noted by both workers alpha and beta. Additionally, it's mentioned that another paper on episodic recall received an Honorable Mention, authored by two researchers from different labs, though the specifics of that paper are not given.",
+        "input_tokens": 3291,
+        "output_tokens": 744,
+        "wall_clock": 18.51,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer accurately matches the factual claims about the co-authors, paper title, main claim, and includes relevant context."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t02",
+        "answer": "The only company that shipped both an SDK and a managed cloud service in the same month is Verdant Labs. They released the Verdant SDK and opened Verdant Cloud for public preview, both in March 2026. Pylon AI launched its inference SDK in February 2026, and Halcyon Systems introduced its observability cloud in April 2026, so they do not meet the criteria.",
+        "input_tokens": 3096,
+        "output_tokens": 625,
+        "wall_clock": 13.626,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer correctly identifies Verdant Labs as the company that shipped both an SDK and a managed cloud service in March 2026, includes details about the specific products released, and explains why the other companies do not meet the criteria."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t03",
+        "answer": "Based on the findings from the workers, a customer cannot receive a refund on a Pro plan purchased 45 days ago without manager approval. Both Policy A and Policy B specify that full refunds without manager approval are only available within 30 days of purchase. Therefore, since the 45-day period exceeds this timeframe, manager approval would be necessary for any potential refund request. Additionally, Policy C confirms that discounts on annual subscriptions do not influence this 30-day refund window.",
+        "input_tokens": 2929,
+        "output_tokens": 559,
+        "wall_clock": 13.584,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer correctly reflects the factual details about refund policies from the ground truth, addresses the timeframe requirement, and cites the relevant policies, thereby showing complete agreement with the ground truth."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t04",
+        "answer": "Currently, Jordan is blocked on the 'Dashboard 2.0' project. The blockage is due to the fact that shipping the dashboard is dependent on the completion of the 'Database migration v3,' which is overseen by the platform team and is currently in review. This means that no progress can be made on the dashboard until the migration is finalized.",
+        "input_tokens": 3076,
+        "output_tokens": 624,
+        "wall_clock": 17.165,
+        "scores": {
+          "factual_correctness": 0,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The answer incorrectly states that Jordan is blocked on 'Dashboard 2.0' instead of the 'database migration owned by the platform team,' which violates factual correctness, but it does address the dependency on the database migration."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t05",
+        "answer": "The new authentication flow will be fully available to enterprise customers starting on May 1, 2026, which coincides with the general availability (GA) release of version 0.9.0 (alpha and beta findings). Prior to this, on March 5, 2026, the new auth flow was introduced behind a feature flag with version 0.8.0 (gamma finding), but it will not be fully available until the GA release. Therefore, while the functionality is introduced earlier, the earliest date by which it is fully available to enterprise customers is May 1, 2026.",
+        "input_tokens": 3159,
+        "output_tokens": 677,
+        "wall_clock": 18.488,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer accurately states the date May 1, 2026, as the time when the new auth flow is fully available to enterprise customers, which aligns with the ground truth, and it includes relevant context and evidence."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t06",
+        "answer": "The two cities that appear in both the conference list and the alumni list are Berlin and Tokyo. Both cities will host the Agents Summit conference this year, thus indicating the overlap. \n\nAdditionally, it is worth noting that there is a planned Agents Summit in 2026, with more events in these cities\u2014Berlin in June and Tokyo in October\u2014though this is not relevant for the current year.",
+        "input_tokens": 3166,
+        "output_tokens": 722,
+        "wall_clock": 17.741,
+        "scores": {
+          "factual_correctness": 0,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer correctly identifies the two cities and mentions the conference overlap, but it incorrectly states that both cities will host the conference this year, rather than confirming their overlap specifically at the Agents Summit 2026."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t07",
+        "answer": "To ensure compliance with GDPR regulations before the EU launch, the specific feature that must be removed is the **Insights feature**, which aggregates telemetry across customer accounts into a shared dashboard. This feature is problematic because it triggers GDPR data controller obligations related to telemetry crossing customer account boundaries, which are currently unmet according to the legal memo and the engineering plan. Therefore, this feature must be eliminated to resolve all GDPR-related issues prior to launch.",
+        "input_tokens": 3085,
+        "output_tokens": 667,
+        "wall_clock": 13.675,
+        "scores": {
+          "factual_correctness": 0,
+          "completeness": 0,
+          "groundedness": 1,
+          "rationale": "The candidate answer incorrectly identifies the feature that needs to be removed; it mentions the 'Insights feature' instead of 'cross-account telemetry sharing' as stated in the ground truth."
+        },
+        "pass": false
+      },
+      {
+        "task_id": "t08",
+        "answer": "The team will have enough budget to hire all three planned engineers next quarter. According to the findings of all workers, specifically alpha, beta, and gamma, the Q3 budget has $300,000 allocated for new hires, and the plan is to hire three engineers at a base salary of $120,000 each. This totals $360,000 in salaries, which exceeds the unallocated budget for new hires. Therefore, while the budget will cover the cost of hiring all three engineers in theory, it is important to note that there is a gap of $60,000 that needs to be addressed to fully fund these positions within the planned hiring timeline.",
+        "input_tokens": 2968,
+        "output_tokens": 620,
+        "wall_clock": 14.777,
+        "scores": {
+          "factual_correctness": 0,
+          "completeness": 0,
+          "groundedness": 1,
+          "rationale": "The candidate answer incorrectly states that the team will have enough budget to hire all engineers, contradicting the ground truth; it also does not clearly address the question's requirement about whether the budget suffices."
+        },
+        "pass": false
+      },
+      {
+        "task_id": "t09",
+        "answer": "The single most-cited reason for customer churn across the interviews is slow onboarding, reported by four customers (A, C, E, and F). In contrast, pricing was cited by two customers (B and D) as a reason for churn. There was also one mention related to missing integrations, but it was not deemed a primary issue.",
+        "input_tokens": 3027,
+        "output_tokens": 586,
+        "wall_clock": 14.115,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer agrees with the ground truth regarding the most-cited reason for churn (slow onboarding), the number of customers who cited it (4), and provides additional context about other mentioned reasons."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t10",
+        "answer": "The endpoint that changed its response shape between v1 and v2 is the `/users` endpoint. In the v1 API, the response contained only the `id` and `name` fields. However, the v2 API introduced an additional field, `created_at`, which indicates when the user was created. Thus, the v2 response now includes `id`, `name`, and `created_at` fields.\n\nBoth alpha, beta, and gamma confirm that the addition of the `created_at` field is the only change to the object structure. There are no other modifications between the two versions.",
+        "input_tokens": 3043,
+        "output_tokens": 702,
+        "wall_clock": 17.629,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer accurately identifies the endpoint and the added 'created_at' field, providing a comparison between v1 and v2, and correctly states that this is the only change."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t11",
+        "answer": "The service outage on May 3, designated as Incident IR-101, lasted from 14:13 to 15:00 UTC. The root cause of the outage was identified in a follow-up report (Incident IR-102) as a misconfigured load balancer health check. All sources\u2014alpha, beta, and gamma\u2014confirm these details, indicating a consistent understanding of the incident.",
+        "input_tokens": 3190,
+        "output_tokens": 671,
+        "wall_clock": 14.737,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer correctly identifies the root cause as a misconfigured load balancer health check and states the outage duration as 47 minutes (14:13 to 15:00 UTC), fully aligning with the ground truth and providing supporting reference to sources."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t12",
+        "answer": "The first version that supports streaming responses on Windows is **version 3.2.0**. Prior to this version, version 3.0.0 added streaming responses for macOS and Linux, while version 3.1.0 improved streaming on Linux but did not provide Windows support, which was still in beta. Thus, the general availability of streaming responses on Windows was officially introduced in 3.2.0.",
+        "input_tokens": 3124,
+        "output_tokens": 553,
+        "wall_clock": 13.671,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer accurately states that version 3.2.0 is the first version that supports streaming responses on Windows, contains all necessary information, and provides context about previous versions, thereby grounding its claims."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t13",
+        "answer": "The findings from all workers confirm that the customer's total spending per quarter is capped at $50,000 according to section 4.2 of the master services agreement. Invoice INV-2026-04 indicates a total amount due of $52,400 for services rendered in Q1 2026, which exceeds this spending cap. Furthermore, the amendment log shows that there have been no amendments to the spending cap in 2025 or 2026. \n\nAs a result, the invoice amount is not within the contracted spending cap and cannot be processed due to this violation.",
+        "input_tokens": 3250,
+        "output_tokens": 816,
+        "wall_clock": 18.88,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer correctly states the contract cap of $50,000, the invoice amount of $52,400, and provides specific references to the contract and amendment log, fully addressing the question without any factual errors."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t14",
+        "answer": "Based on the findings from the workers, the risotto recipe includes several ingredients that conflict with both vegan and gluten-free dietary restrictions. Specifically, it contains parmesan cheese (which is dairy and therefore not vegan), butter (another animal product), and a side of wheat flour bread (which is not gluten-free). \n\nAlpha and gamma both confirmed these points, emphasizing that vegan diets exclude all animal products, and gluten-free diets must avoid wheat, barley, and rye. Consequently, the dish in its current form is neither vegan nor gluten-free.\n\nAdditionally, a substitution chart is available for dietary modifications, which could potentially allow for the creation of a version of the dish that meets both dietary needs. However, the current recipe as it stands cannot be served to a guest who follows a vegan and gluten-free diet.",
+        "input_tokens": 3126,
+        "output_tokens": 772,
+        "wall_clock": 18.147,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer accurately identifies all the conflicting ingredients and supports its claims with additional context about dietary restrictions, fulfilling all scoring criteria."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t15",
+        "answer": "The CVE that affects both component X and component Y is CVE-2026-0099. This vulnerability is classified as critical, with a CVSS score of 9.8. It impacts component X in versions prior to 4.1 and affects component Y due to its reliance on a shared parsing library with component X. All sources (alpha, beta, and gamma) provide consistent findings regarding the severity and affected components.",
+        "input_tokens": 3206,
+        "output_tokens": 730,
+        "wall_clock": 17.112,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer correctly identifies CVE-2026-0099, accurately states its critical severity, and provides additional information about the impact on components X and Y, corroborating with stated sources."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t16",
+        "answer": "Based on the information provided, the conference will conclude with closing remarks at 5:30 PM. Both alpha and gamma confirm that it takes approximately 20 minutes to reach the central station from the venue using a combination of walking and a shuttle. Since the express train to the capital city departs at 6:00 PM, a passenger would need to leave immediately after the closing remarks to catch the train on time.\n\nIn summary, if a passenger leaves right at 5:30 PM, they can catch the 6:00 PM express train, as they would arrive at the station around 5:50 PM, allowing for a successful boarding before departure.",
+        "input_tokens": 2971,
+        "output_tokens": 638,
+        "wall_clock": 13.981,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer is factually correct, complete, and well-grounded by providing specific times and making connections to the schedule."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t17",
+        "answer": "The analysis of the experimental results indicates that the new method performed better than the baseline method. Specifically, the new method scored 78.4, while the baseline scored 74.2, resulting in a difference of 4.2 points. This difference exceeds the established threshold of 1.5 points required for statistical significance, confirming that the new method is statistically superior to the baseline.\n\nEach worker reported consistent findings regarding these results: alpha noted the new method's efficacy, beta confirmed its statistical superiority, and gamma provided detailed evidence supporting these conclusions. Additionally, a variance analysis showed a standard error of 0.6, further validating the reliability of the results.\n\nIn summary, the new method did outperform the baseline with statistical significance.",
+        "input_tokens": 3190,
+        "output_tokens": 833,
+        "wall_clock": 20.145,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer correctly states that the new method outperformed the baseline with statistical significance, aligns with the 4.2-point improvement exceeding the 1.5-point threshold, and provides supporting details from the methodology and analysis."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t18",
+        "answer": "The person who is on both teams is Priya Shah. On the Platform team, she holds the role of tech lead, while on the Growth team, she serves as a contributor. All sources agree that there are no other overlaps between the teams. The team directory was updated last week, confirming these roles.",
+        "input_tokens": 3137,
+        "output_tokens": 684,
+        "wall_clock": 18.793,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer accurately states that Priya Shah is on both teams and correctly identifies her roles, while also providing supporting context about the sources."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t19",
+        "answer": "In Q1, the gross margins by region are as follows:\n\n- **North America:** 40%\n- **EMEA:** 60%\n- **APAC:** 50%\n\nThe region with the highest gross margin is **EMEA**, with a margin of **60%**. \n\nAll workers (alpha, beta, gamma) agree on the calculations, and no contradictions or problems were noted in their findings.",
+        "input_tokens": 3618,
+        "output_tokens": 1161,
+        "wall_clock": 19.036,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer accurately states that EMEA has the highest gross margin of 60%, agrees with the ground truth on all factual claims, addresses the question fully, and provides evidence from the margin breakdown."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t20",
+        "answer": "The analysis of the candidate's qualifications in relation to the open requisition for a Senior Data Infrastructure Engineer indicates that they are indeed qualified for the senior role. The open requisition specifies a minimum of 5 years of experience in distributed systems as the primary qualification, a criterion supported by the hiring rubric that states experience is the most critical factor (alpha, gamma).\n\nThe candidate reported to have 8 years of relevant experience in building distributed data pipelines using Python and Go, which exceeds the minimum requirement (alpha, gamma). Moreover, the current trend underscores the high demand for such expertise in distributed systems, further validating the need for candidates who meet these experience benchmarks (beta).\n\nIn conclusion, the candidate's 8 years of experience places them well within the parameters of the position's requirements, affirming their suitability for the role.",
+        "input_tokens": 3164,
+        "output_tokens": 837,
+        "wall_clock": 16.382,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer agrees with the ground truth by confirming that the candidate has 8 years of experience, exceeding the requirement. It fully addresses the relevancy and specifics of the experience, while also citing criteria like the hiring rubric and current trends, demonstrating groundedness."
+        },
+        "pass": true
+      }
+    ],
+    "shared": [
+      {
+        "task_id": "t01",
+        "answer": "Researchers Mei Tan and Felix Bauer co-authored a paper titled 'Sparse Episodic Recall in Long-Horizon Agents' at ICML 2025. The main claim of the paper is that sparse episodic recall significantly outperforms dense retrieval in tasks exceeding 10,000 tokens.",
+        "input_tokens": 3154,
+        "output_tokens": 594,
+        "wall_clock": 17.361,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer agrees with all factual claims of the ground truth, addresses the full question without omitting details, and provides a paraphrase that maintains the essence of the evidence presented."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t02",
+        "answer": "The company that shipped both an SDK and a managed cloud service in the same month is Verdant Labs. They released the Verdant SDK to general availability and launched the Verdant Cloud (managed service) for public preview, both happening in March 2026.",
+        "input_tokens": 3278,
+        "output_tokens": 524,
+        "wall_clock": 13.914,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer correctly identifies Verdant Labs as the company that shipped both an SDK and a managed cloud service in March 2026, addressing all aspects of the question and referencing the specifics of the product launches."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t03",
+        "answer": "Based on the policies reviewed, a customer cannot get a refund on a Pro plan purchased 45 days ago without manager approval. Full refunds without manager approval are only available within 30 days of purchase, as stated in Policy A. This rule applies equally to the Pro plan, which follows the same terms as the standard plan (Policy B). Additionally, discounts on annual subscriptions do not influence the refund window (Policy C). Therefore, since the purchase was made 45 days ago, the customer would need to seek manager approval for a refund.",
+        "input_tokens": 3508,
+        "output_tokens": 693,
+        "wall_clock": 19.465,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer agrees with the ground truth on all factual claims, fully addresses the question, and cites the relevant policies to support its statements."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t04",
+        "answer": "Currently, the engineer blocked is Jordan, who is unable to proceed with 'Dashboard 2.0' due to the pending completion of 'Database migration v3.' This migration is currently under review by the platform team. Both alpha and beta support this conclusion, confirming that the dashboard cannot be shipped until the migration is resolved, and gamma corroborates this with a direct quote from Jordan stating they cannot ship the dashboard until the migration lands. Thus, Jordan remains blocked on this task until the migration is completed.",
+        "input_tokens": 3504,
+        "output_tokens": 665,
+        "wall_clock": 21.79,
+        "scores": {
+          "factual_correctness": 0,
+          "completeness": 0,
+          "groundedness": 1,
+          "rationale": "The candidate answer incorrectly states that Jordan is blocked on 'Dashboard 2.0' instead of the 'database migration,' which is the specific task mentioned in the ground truth."
+        },
+        "pass": false
+      },
+      {
+        "task_id": "t05",
+        "answer": "The new auth flow will be fully available to enterprise customers starting May 1, 2026, when version 0.9 GA is released and the new auth flow is enabled by default for all customers. This information is confirmed across all three findings, with worker alpha noting that the new auth flow was introduced in version 0.8.0 on March 5, 2026, but was initially behind a feature flag until the version 0.9 GA release (worker beta and gamma also confirm this schedule).",
+        "input_tokens": 3231,
+        "output_tokens": 686,
+        "wall_clock": 19.874,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer correctly states the date as May 1, 2026, aligns with the explanation provided in the ground truth about the version requirements for enterprise rollout, and cites evidence from all three changelog entries."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t06",
+        "answer": "The two cities that appear in both the conference list and the alumni list are Berlin and Tokyo. They overlap at the Agents Summit 2026, which will have co-located events in Berlin in June and in Tokyo in October (as confirmed by alpha, beta, and gamma).",
+        "input_tokens": 3316,
+        "output_tokens": 487,
+        "wall_clock": 14.523,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer agrees with the ground truth on all factual claims, addresses every part of the question, and cites or paraphrases underlying evidence."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t07",
+        "answer": "To ensure compliance with GDPR regulations before the EU launch, the specific feature that must be removed is the Insights feature. This feature aggregates telemetry data from different customer accounts into a single shared dashboard. According to the legal memo, when telemetry crosses customer account boundaries, it activates GDPR data controller obligations that are currently unmet. Thus, to address these compliance issues, the Insights feature must be eliminated.",
+        "input_tokens": 3050,
+        "output_tokens": 566,
+        "wall_clock": 14.813,
+        "scores": {
+          "factual_correctness": 0,
+          "completeness": 0,
+          "groundedness": 1,
+          "rationale": "The candidate answer incorrectly identifies the feature to be removed as the 'Insights feature' instead of the correct 'Cross-account telemetry sharing', leading to a score of 0 for factual correctness and completeness, but it does reference GDPR compliance issues."
+        },
+        "pass": false
+      },
+      {
+        "task_id": "t08",
+        "answer": "Based on the findings from the expert swarm, the Q3 budget has $300,000 unallocated specifically for new hires, which is sufficient to cover the hiring of three engineers at a base salary of $120,000 each. Since the total cost to hire all three engineers would be $360,000, this indicates that there is a shortfall of $60,000 to fully cover the planned hires (300,000 - 360,000 = -60,000). Therefore, the team will not have enough budget to hire all three planned engineers next quarter.",
+        "input_tokens": 2909,
+        "output_tokens": 578,
+        "wall_clock": 14.371,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer accurately states that the hiring of three engineers costs $360k, that the available budget is $300k, and correctly identifies the shortfall."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t09",
+        "answer": "Across the customer interviews, the single most-cited reason for churn is \"slow onboarding,\" which was mentioned a total of four times by Customers A, C, E, and F. In comparison, \"pricing\" was cited as a concern by Customers B and D, with two mentions, and \"missing integrations\" was noted once. This data collectively indicates that \"slow onboarding\" is the primary issue driving customer churn, significantly outpacing the other concerns.",
+        "input_tokens": 3158,
+        "output_tokens": 644,
+        "wall_clock": 15.612,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate accurately identifies slow onboarding as the most-cited reason for churn and states that it was cited by 4 customers, matching the ground truth. It comprehensively summarizes the comparison with other reasons and cites the evidence correctly."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t10",
+        "answer": "The endpoint's response shape changed between version 1 and version 2 of the API. In version 1, the response consisted of user objects with only the 'id' and 'name' fields. However, in version 2, the response retains these fields and adds a new 'created_at' field. Notably, no other changes were reported in the response structure. This finding was corroborated by all workers: alpha, beta, and gamma.",
+        "input_tokens": 3611,
+        "output_tokens": 662,
+        "wall_clock": 20.225,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer accurately identifies the change in response shape of the '/v2/users' endpoint by stating that it adds the 'created_at' field, aligns with the ground truth, and mentions corroboration by workers, thus fully addressing the question."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t11",
+        "answer": "The root cause of the May 3 outage was a misconfigured load balancer health check, as identified in the follow-up Incident IR-102. The service degradation reported in Incident IR-101 lasted for 47 minutes, specifically from 14:13 to 15:00 UTC.",
+        "input_tokens": 3051,
+        "output_tokens": 563,
+        "wall_clock": 15.301,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer accurately states the root cause and duration of the outage, aligns with the ground truth, and provides citation to the incident reports."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t12",
+        "answer": "The first version that supports streaming responses on Windows is v3.2.0, which marked the streaming feature as generally available (GA). Prior to this, in v3.1.0, the streaming feature was still in beta on Windows, though it had seen improvements on Linux. This clarification from the evidence confirms that v3.2.0 is indeed the first stable release for streaming responses on Windows, as noted by workers alpha, beta, and gamma.",
+        "input_tokens": 2979,
+        "output_tokens": 580,
+        "wall_clock": 14.202,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer accurately states that v3.2.0 is the first version supporting streaming responses on Windows, agrees with the ground truth, addresses the question completely, and cites supporting details about the previous beta version."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t13",
+        "answer": "Based on the analysis of the contract and invoice, the findings are clear. The master services agreement, specifically section 4.2, specifies that the customer's total spend per quarter is capped at $50,000 unless there is a written amendment. Invoice INV-2026-04 indicates a total amount due of $52,400 for services rendered in Q1 2026, which exceeds this spending cap.\n\nAdditionally, the amendment log confirms there have been no amendments to the spending cap in 2025 or 2026. Therefore, the amount on the invoice is indeed outside the contracted spending cap.",
+        "input_tokens": 3457,
+        "output_tokens": 779,
+        "wall_clock": 20.167,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer correctly states that the invoice amount exceeds the contracted spending cap and provides supporting details from the contract and amendment log."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t14",
+        "answer": "Based on the analysis of the original risotto recipe and the dietary notes provided, the dish as it stands cannot be served to a guest who is both vegan and gluten-free. The original recipe contains parmesan cheese (a dairy product) and a side of wheat flour bread, both of which are not suitable for a vegan or gluten-free diet.\n\nHowever, modifications can be made to adapt the recipe for these dietary restrictions. To make the risotto suitable for a vegan and gluten-free guest, you should:\n\n1. **Replace the parmesan cheese** with a plant-based cheese alternative.\n2. **Use gluten-free vegetable broth** instead of any wheat-based ingredients.\n3. **Ensure the white wine is suitable** by checking for any animal-derived fining agents that may have been used in its production.\n\nBy implementing these substitutions, the risotto can then be served to your guest who follows a vegan and gluten-free diet.",
+        "input_tokens": 3158,
+        "output_tokens": 762,
+        "wall_clock": 19.26,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer accurately states that the dish cannot be served to a vegan and gluten-free guest due to Parmesan cheese and wheat flour, and it also provides a comprehensive explanation and suggestions for modifications."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t15",
+        "answer": "The CVE that affects both component X and component Y is **CVE-2026-0099**, which is classified as a **critical vulnerability** with a **CVSS score of 9.8**. It impacts component X in versions prior to 4.1, and it also affects component Y because both components utilize a shared parsing library. All three workers (alpha, beta, and gamma) consistently reported the same information, confirming the severity and the affected components.",
+        "input_tokens": 3106,
+        "output_tokens": 594,
+        "wall_clock": 15.252,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer accurately identifies the CVE as CVE-2026-0099, confirms it affects both components X and Y, and states the severity as critical, which aligns with the ground truth. It also provides additional context about the versions affected and the shared parsing library, thus fully addressing the question."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t16",
+        "answer": "Based on the findings from the workers, the conference concludes at 5:30 PM, and it takes 20 minutes to travel to the central station. This means a passenger leaving the conference at 5:30 PM would not arrive at the station until approximately 5:50 PM. Since the express train to the capital departs at 6:00 PM sharp, there would only be 10 minutes to board the train, which could be insufficient.\n\nThus, it is likely that a passenger leaving the conference at 5:30 PM would not be able to catch the 6:00 PM express train.",
+        "input_tokens": 3111,
+        "output_tokens": 619,
+        "wall_clock": 14.809,
+        "scores": {
+          "factual_correctness": 0,
+          "completeness": 0,
+          "groundedness": 1,
+          "rationale": "The candidate answer incorrectly concludes that the passenger would not catch the train, despite it being possible with a 10-minute buffer, but it does accurately reference the time it takes to travel and how it relates to the train's departure."
+        },
+        "pass": false
+      },
+      {
+        "task_id": "t17",
+        "answer": "Based on the experiment results, the new method achieved a score of 78.4, while the baseline method scored 74.2, resulting in a significant difference of 4.2 points. This difference exceeds the threshold of 1.5 points necessary for statistical significance as indicated in the methodology note (alpha, beta, gamma). Additionally, the results are reinforced by a standard error of 0.6, supporting the reliability of these findings. Therefore, we can conclude that the new method did outperform the baseline with statistical significance.",
+        "input_tokens": 3267,
+        "output_tokens": 681,
+        "wall_clock": 18.424,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer correctly states the improvement of 4.2 points exceeding the 1.5-point threshold for statistical significance, includes relevant methodology details, and cites evidence like the standard error."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t18",
+        "answer": "The individual who is on both the Platform team and the Growth team is Priya Shah. On the Platform team, she serves as the tech lead, while on the Growth team, her role is that of a contributor. This information has been consistently confirmed by multiple sources.",
+        "input_tokens": 3012,
+        "output_tokens": 404,
+        "wall_clock": 11.116,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer accurately identifies Priya Shah's dual roles on both teams as the tech lead on Platform and contributor on Growth, and it provides a basis for this claim."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t19",
+        "answer": "Based on the sales and cost of goods sold (COGS) data provided for Q1, the calculations of gross margins for each region are as follows:\n\n1. **North America (NA)**:\n   - Sales: $1.2 million\n   - COGS: $720,000\n   - Margin: 40%\n\n2. **EMEA**:\n   - Sales: $0.8 million\n   - COGS: $320,000\n   - Margin: 60%\n\n3. **APAC**:\n   - Sales: $0.5 million\n   - COGS: $250,000\n   - Margin: 50%\n\nThe region with the highest gross margin in Q1 is **EMEA**, with a margin of **60%**. \n\nAll calculations have been verified, and there are no contradictions in the findings presented.",
+        "input_tokens": 5047,
+        "output_tokens": 1159,
+        "wall_clock": 24.739,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate answer accurately identifies EMEA as the region with the highest gross margin in Q1 at 60%, includes all necessary details about sales and COGS for the calculations, and supports its conclusion with referenced calculations."
+        },
+        "pass": true
+      },
+      {
+        "task_id": "t20",
+        "answer": "Based on the information provided, the candidate is qualified for the Senior Data Infrastructure Engineer role. The open requisition specifies a minimum requirement of 5 years of experience in distributed systems, while the identified candidate possesses 8 years of relevant experience in building distributed data pipelines using Python and Go. Both alpha and beta confirm that years of experience are the primary hiring criterion, with additional qualifications deemed less essential. Therefore, the candidate meets and exceeds the minimum requirements for this position.",
+        "input_tokens": 3209,
+        "output_tokens": 664,
+        "wall_clock": 14.802,
+        "scores": {
+          "factual_correctness": 1,
+          "completeness": 1,
+          "groundedness": 1,
+          "rationale": "The candidate's answer accurately states that they have 8 years of experience, exceeding the 5-year requirement, aligns with the ground truth, addresses all parts of the question, and provides evidence from the requisition regarding experience as the primary hiring criterion."
+        },
+        "pass": true
+      }
+    ]
+  }
+}

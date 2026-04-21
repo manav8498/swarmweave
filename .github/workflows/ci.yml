@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Least-privilege default. Individual jobs can widen if they need to.
+permissions:
+  contents: read
+
+# Cancel superseded runs (e.g. push + PR on the same commit).
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: ${{ matrix.python-version }} / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-14]
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
+        include:
+          # Add one Windows entry so we catch path / line-ending / asyncio
+          # regressions without multiplying the whole matrix.
+          - os: windows-2022
+            python-version: "3.13"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install package with dev extras
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+      - name: ruff format check
+        run: ruff format --check .
+      - name: ruff lint
+        run: ruff check .
+      - name: mypy --strict
+        run: mypy --strict src/swarmweave
+      - name: pytest
+        run: pytest -q

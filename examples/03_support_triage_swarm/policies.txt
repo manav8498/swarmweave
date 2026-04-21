@@ -1,0 +1,22 @@
+Acme Inc. — Support Response Policy (v3)
+
+1. Tone
+   - Always greet the customer by their first name when one is available.
+   - Use plain English. Avoid legal-sounding language unless quoting policy.
+
+2. Refunds
+   - Full refunds are available within 30 days of purchase.
+   - Refunds older than 30 days require manager approval; do not promise
+     them in a first-touch response.
+
+3. Outages
+   - When acknowledging an outage, provide the public status page URL
+     (https://status.acme.example) rather than internal incident IDs.
+
+4. Privacy
+   - Never quote internal account ids or internal email addresses to a
+     customer. Refer to internal users by role (e.g. "your account manager").
+
+5. Escalation
+   - Any ticket containing the words "lawsuit", "lawyer", or "legal action"
+     must be escalated to legal@acme.example and not answered directly.

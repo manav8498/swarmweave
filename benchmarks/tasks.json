@@ -1,0 +1,202 @@
+[
+  {
+    "id": "t01",
+    "question": "Which two of the listed researchers co-authored a paper at venue ICML 2025, and what was that paper's main claim?",
+    "ground_truth": "Mei Tan and Felix Bauer co-authored 'Sparse Episodic Recall in Long-Horizon Agents' at ICML 2025. The main claim is that sparse episodic recall outperforms dense retrieval on tasks longer than 10k tokens.",
+    "seeds": [
+      "Researcher Mei Tan published 'Sparse Episodic Recall in Long-Horizon Agents' at ICML 2025 with Felix Bauer.",
+      "Felix Bauer's recent work focuses on retrieval policies for long-context agents, with a notable 2025 paper at ICML claiming sparse episodic recall outperforms dense retrieval on tasks longer than 10k tokens.",
+      "ICML 2025 Best Paper Honorable Mention went to a paper on episodic recall whose two authors come from different labs."
+    ]
+  },
+  {
+    "id": "t02",
+    "question": "Across the three product launches mentioned, which company shipped both an SDK and a managed cloud service in the same month?",
+    "ground_truth": "Verdant Labs shipped both an SDK and a managed cloud service in March 2026.",
+    "seeds": [
+      "Verdant Labs released the Verdant SDK in March 2026 to general availability.",
+      "Verdant Cloud, the managed service from Verdant Labs, opened to public preview in March 2026.",
+      "Pylon AI launched its inference SDK in February 2026; Halcyon Systems launched its observability cloud in April 2026."
+    ]
+  },
+  {
+    "id": "t03",
+    "question": "Combining the two policies, can a customer get a refund on a Pro plan purchased 45 days ago without manager approval?",
+    "ground_truth": "No. Refunds beyond 30 days require manager approval per Policy A, and Policy B does not waive that requirement for Pro plans.",
+    "seeds": [
+      "Policy A: Full refunds without manager approval are available within 30 days of purchase.",
+      "Policy B: The Pro plan is sold under the same refund terms as the standard plan.",
+      "Policy C: Discounts on annual subscriptions do not affect the refund window."
+    ]
+  },
+  {
+    "id": "t04",
+    "question": "Given the meeting notes and the project tracker, which engineer is currently blocked, and on what?",
+    "ground_truth": "Jordan is blocked, on the database migration owned by the platform team.",
+    "seeds": [
+      "Meeting notes (April 12): Jordan said they cannot ship the dashboard until the underlying migration lands.",
+      "Project tracker: 'Database migration v3' is owned by the platform team and is currently in review.",
+      "Project tracker: 'Dashboard 2.0' is owned by Jordan and is currently blocked."
+    ]
+  },
+  {
+    "id": "t05",
+    "question": "Across all three changelog entries, what is the earliest date by which the new auth flow is fully available to enterprise customers?",
+    "ground_truth": "May 1, 2026 — that is when v0.9 GA ships, which is required for enterprise rollout per the v0.8.2 changelog note.",
+    "seeds": [
+      "v0.8.0 (March 5, 2026): Introduced the new auth flow behind a feature flag.",
+      "v0.8.2 (April 1, 2026): Enterprise rollout will begin once v0.9 GA ships.",
+      "v0.9.0 (May 1, 2026): GA release. New auth flow enabled by default for all customers."
+    ]
+  },
+  {
+    "id": "t06",
+    "question": "Which two cities appear in both the conference list and the alumni list, and at which conference do they overlap?",
+    "ground_truth": "Berlin and Tokyo both appear in both lists. They overlap at the Agents Summit 2026.",
+    "seeds": [
+      "Conferences this year: NeurIPS (San Diego), Agents Summit (Berlin and Tokyo), DevDay (Singapore).",
+      "Alumni from the program live in: Berlin, Lisbon, Tokyo, Toronto.",
+      "Agents Summit 2026 has co-located events in Berlin (June) and Tokyo (October)."
+    ]
+  },
+  {
+    "id": "t07",
+    "question": "Reading the legal memo and the engineering plan together, what specific feature must be removed before the EU launch?",
+    "ground_truth": "Cross-account telemetry sharing must be removed before the EU launch.",
+    "seeds": [
+      "Legal memo: Telemetry that crosses customer account boundaries triggers GDPR data-controller obligations not currently satisfied.",
+      "Engineering plan v2: The Insights feature aggregates telemetry across customer accounts into a shared dashboard.",
+      "EU launch checklist: All GDPR-relevant items must be resolved before launch."
+    ]
+  },
+  {
+    "id": "t08",
+    "question": "Given the budget and the headcount plan, will the team have enough budget to hire all three planned engineers next quarter?",
+    "ground_truth": "No. The headcount plan calls for $360k of new salary; the available budget is $300k.",
+    "seeds": [
+      "Q3 budget: $300k unallocated for new hires.",
+      "Headcount plan: Three engineers at $120k base each next quarter.",
+      "Recruiting forecast: All three roles expected to close before Q3 end."
+    ]
+  },
+  {
+    "id": "t09",
+    "question": "Across the customer interviews, what is the single most-cited reason for churn, and how many customers cited it?",
+    "ground_truth": "Slow onboarding was cited by 4 customers, more than any other reason.",
+    "seeds": [
+      "Interview log: Customers A, C, E, and F all mentioned slow onboarding as the primary friction.",
+      "Interview log: Customers B and D mentioned pricing as the primary friction.",
+      "Summary spreadsheet shows: slow onboarding 4, pricing 2, missing integrations 1."
+    ]
+  },
+  {
+    "id": "t10",
+    "question": "Reading the API spec and the changelog, which endpoint changed its response shape between v1 and v2, and what changed?",
+    "ground_truth": "/v2/users now returns a 'created_at' field that did not exist in /v1/users.",
+    "seeds": [
+      "v1 API spec: /v1/users returns objects with id and name fields.",
+      "v2 API spec: /v2/users returns objects with id, name, and created_at fields.",
+      "Changelog: v2 added created_at to user objects; no other shape changes."
+    ]
+  },
+  {
+    "id": "t11",
+    "question": "Combining the two incident reports, what was the root cause of the May 3 outage and how long did it last?",
+    "ground_truth": "The root cause was a misconfigured load balancer health check; the outage lasted 47 minutes.",
+    "seeds": [
+      "Incident IR-101 (May 3): Service degraded from 14:13 to 15:00 UTC. Root cause TBD.",
+      "Incident IR-102 (May 3 follow-up): Postmortem identifies misconfigured load balancer health check as root cause of the May 3 outage.",
+      "Status page: Outage on May 3 lasted from 14:13 to 15:00 UTC."
+    ]
+  },
+  {
+    "id": "t12",
+    "question": "Across the three SDK release notes, what is the first version that supports streaming responses on Windows?",
+    "ground_truth": "v3.2.0 — that is the first version to support streaming responses on Windows.",
+    "seeds": [
+      "v3.0.0 release notes: Adds streaming responses on macOS and Linux.",
+      "v3.1.0 release notes: Improves streaming throughput on Linux. Windows streaming still in beta.",
+      "v3.2.0 release notes: Streaming responses GA on Windows."
+    ]
+  },
+  {
+    "id": "t13",
+    "question": "Reading the contract and the invoice, is the invoice amount within the contracted spending cap?",
+    "ground_truth": "No. The contract caps quarterly spend at $50,000; the invoice is for $52,400.",
+    "seeds": [
+      "Master services agreement, section 4.2: Customer's total spend per quarter capped at $50,000 unless amended in writing.",
+      "Invoice INV-2026-04: Total amount due $52,400 for services rendered in Q1 2026.",
+      "Amendment log: No amendments to the spending cap in 2025 or 2026."
+    ]
+  },
+  {
+    "id": "t14",
+    "question": "Combining the recipe and the dietary notes, can the dish be served to a guest who is both vegan and gluten-free?",
+    "ground_truth": "No. The recipe contains parmesan cheese (not vegan) and wheat flour (not gluten-free).",
+    "seeds": [
+      "Recipe: Risotto with parmesan cheese, white wine, arborio rice, butter, and a side of wheat flour bread.",
+      "Dietary notes: Vegan = no animal products including dairy. Gluten-free = no wheat, barley, rye.",
+      "Substitution chart available on request."
+    ]
+  },
+  {
+    "id": "t15",
+    "question": "Across the two threat reports, which CVE affects both component X and component Y, and what is its severity?",
+    "ground_truth": "CVE-2026-0099 affects both component X and component Y, with severity Critical.",
+    "seeds": [
+      "Threat report A: CVE-2026-0099 (Critical) affects component X in versions before 4.1.",
+      "Threat report B: CVE-2026-0099 also affects component Y due to a shared parsing library.",
+      "Vendor advisory: CVE-2026-0099 carries CVSS score 9.8 (Critical)."
+    ]
+  },
+  {
+    "id": "t16",
+    "question": "Given the schedule and the train timetable, can a passenger leaving the conference at 5:30pm catch the 6:00pm express?",
+    "ground_truth": "Yes — the journey from the conference venue to the station takes 20 minutes, leaving 10 minutes of buffer before the 6:00pm departure.",
+    "seeds": [
+      "Conference schedule: Closing remarks end at 5:30pm.",
+      "Travel guide: The walk plus shuttle from venue to central station takes 20 minutes.",
+      "Train timetable: The express to capital city departs at 6:00pm sharp."
+    ]
+  },
+  {
+    "id": "t17",
+    "question": "Reading the experiment results and the methodology note, did the new method outperform the baseline with statistical significance?",
+    "ground_truth": "Yes. The 4.2-point improvement exceeds the 1.5-point statistical significance threshold described in the methodology.",
+    "seeds": [
+      "Experiment table: New method scores 78.4; baseline scores 74.2.",
+      "Methodology note: Differences greater than 1.5 points on this benchmark are considered statistically significant under the protocol.",
+      "Variance analysis confirms standard error of 0.6."
+    ]
+  },
+  {
+    "id": "t18",
+    "question": "Across the two team rosters, which person is on both teams and what is their role on each?",
+    "ground_truth": "Priya Shah is on both teams; she is the tech lead on Platform and a contributor on Growth.",
+    "seeds": [
+      "Platform team roster: Priya Shah (tech lead), Diego Mota (engineer), Aiko Tanaka (engineer).",
+      "Growth team roster: Marcus Hall (lead), Priya Shah (contributor), Lin Wei (engineer).",
+      "Team directory updated last week; no other overlaps."
+    ]
+  },
+  {
+    "id": "t19",
+    "question": "Given the sales numbers by region and the cost breakdown, which region had the highest gross margin in Q1?",
+    "ground_truth": "EMEA had the highest gross margin in Q1, at approximately 60%.",
+    "seeds": [
+      "Sales Q1: NA $1.2M, EMEA $0.8M, APAC $0.5M.",
+      "Cost of goods Q1 by region: NA $720k, EMEA $320k, APAC $250k.",
+      "Margin = (sales - COGS) / sales."
+    ]
+  },
+  {
+    "id": "t20",
+    "question": "Across the resume and the open requisition, is this candidate qualified for the senior role?",
+    "ground_truth": "Yes. The candidate has 8 years of relevant experience, exceeding the 5-year minimum stated in the requisition.",
+    "seeds": [
+      "Resume: 8 years building distributed data pipelines in Python and Go.",
+      "Open requisition: Senior data infrastructure engineer, minimum 5 years of distributed systems experience.",
+      "Hiring rubric: Years of experience is the binding qualifier; other criteria are nice-to-have."
+    ]
+  }
+]

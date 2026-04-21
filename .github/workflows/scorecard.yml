@@ -1,0 +1,38 @@
+name: OSSF Scorecard
+
+# Runs OpenSSF Scorecard, which grades this repo against supply-chain
+# and security best practices (branch protection, signed releases,
+# pinned dependencies, dangerous workflows, etc). Results appear in
+# the Security tab and can be surfaced as a badge.
+
+on:
+  branch_protection_rule:
+  schedule:
+    - cron: "0 7 * * 1"  # weekly
+  push:
+    branches: [main]
+
+permissions: read-all
+
+jobs:
+  analysis:
+    name: Scorecard analysis
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      security-events: write  # upload SARIF results
+      id-token: write          # publish results (signed)
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: ossf/scorecard-action@f49aabe0b5af0936a0987cfb85d86b75341b0944 # v2.4.1
+        with:
+          results_file: results.sarif
+          results_format: sarif
+          publish_results: true
+      - uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results.sarif

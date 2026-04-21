@@ -1,0 +1,67 @@
+name: Publish to PyPI
+
+# Trigger: pushing a v*.*.* tag. Before this workflow can succeed on PyPI,
+# you must configure a "Trusted Publisher" in the PyPI project settings:
+#   - Owner:    manav8498
+#   - Repo:     swarmweave
+#   - Workflow: release.yml
+#   - Env:      pypi
+# Docs: https://docs.pypi.org/trusted-publishers/
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false  # never cancel a release mid-upload
+
+jobs:
+  build:
+    name: Build distributions
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install build
+        run: python -m pip install --upgrade build
+      - name: Build sdist and wheel
+        run: python -m build
+      - name: Verify with twine
+        run: |
+          python -m pip install --upgrade twine
+          python -m twine check --strict dist/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dists
+          path: dist/
+
+  publish:
+    name: Publish to PyPI
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    environment:
+      name: pypi
+      url: https://pypi.org/p/swarmweave
+    permissions:
+      # OIDC token for PyPI Trusted Publishing (no API tokens needed).
+      id-token: write
+      # Sigstore attestations (PEP 740) uploaded to PyPI.
+      attestations: write
+      contents: read
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dists
+          path: dist/
+      # Pin by commit SHA, not a mutable branch ref. The SHA below is
+      # pypa/gh-action-pypi-publish v1.12.4 — bump deliberately via
+      # Dependabot. Attestations are on by default since Nov 2024.
+      - uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc # v1.12.4

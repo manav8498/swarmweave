@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Environments
+.venv/
+venv/
+env/
+.env
+
+# Testing & coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Project local data
+.swarmweave/
+~/.swarmweave/
+real_world_results/
+
+# Transient benchmark artifacts (results.json + chart.png are committed)
+benchmarks/results/results.partial.json
+
+# AI coding assistants' local state
+.claude/
+.cursor/
+.aider*
+
+# OS
+.DS_Store
+Thumbs.db

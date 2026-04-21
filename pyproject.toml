@@ -1,0 +1,141 @@
+[build-system]
+# 1.27 is the floor for robust PEP 639 license-expression + license-files support.
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "swarmweave"
+version = "0.1.0"
+description = "Supervisor-orchestrated multi-agent swarms with shared, outcome-optimized context."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Manav Patel", email = "manav8498@users.noreply.github.com" }]
+maintainers = [{ name = "Manav Patel", email = "manav8498@users.noreply.github.com" }]
+keywords = [
+    "agents",
+    "ai-agents",
+    "agent-framework",
+    "multi-agent",
+    "langgraph",
+    "llm",
+    "memory",
+    "openai",
+    "orchestration",
+    "shared-context",
+    "supervisor",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Framework :: AsyncIO",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+# Upper bounds on the LLM-stack deps protect against breaking minor bumps
+# in LangChain/LangGraph, which have shipped several CVEs and several
+# breaking changes over the past year. Bumps are surfaced by Dependabot
+# so we upgrade deliberately instead of reactively.
+dependencies = [
+    "openai>=1.50.0,<3.0",
+    "langgraph>=0.2.0,<2.0",
+    "langchain-core>=0.3.0,<2.0",
+    "pydantic>=2.0,<3.0",
+    "python-dotenv>=1.0,<2.0",
+    "rich>=13.7,<15.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.6",
+    "mypy>=1.10",
+    "matplotlib>=3.8",
+]
+
+[project.urls]
+Homepage = "https://github.com/manav8498/swarmweave"
+Documentation = "https://github.com/manav8498/swarmweave#readme"
+Changelog = "https://github.com/manav8498/swarmweave/blob/main/CHANGELOG.md"
+Source = "https://github.com/manav8498/swarmweave"
+Issues = "https://github.com/manav8498/swarmweave/issues"
+
+[project.scripts]
+swarmweave = "swarmweave.cli:main"
+
+[tool.hatch.version]
+path = "src/swarmweave/__init__.py"
+# Hatch parses __version__ from the package __init__ when it's dynamic.
+# We keep the constant in __init__.py sourced from importlib.metadata at
+# runtime and tell Hatch to use the pyproject.toml 'version' field instead
+# by leaving this as a comment — the static `version = "0.1.0"` above wins.
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/swarmweave"]
+
+[tool.hatch.build.targets.sdist]
+# Ship only what downstream users need. The benchmark / examples / docs
+# / scripts stay in the GitHub repo but don't bloat the PyPI tarball.
+# (Everything referenced from README should still be viewable on GitHub.)
+include = [
+    "src/swarmweave",
+    "tests",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "pyproject.toml",
+]
+exclude = [
+    "benchmarks",
+    "docs",
+    "examples",
+    "scripts",
+    ".github",
+    ".gitignore",
+    ".editorconfig",
+    ".pre-commit-config.yaml",
+    "init.sh",
+    "init.ps1",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["examples/02_code_review_swarm/sample_code.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["B011"]
+"examples/**" = ["B"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true                 # implies disallow_untyped_defs, disallow_incomplete_defs,
+                              # warn_unused_ignores, warn_redundant_casts, warn_return_any,
+                              # no_implicit_optional, etc.
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = ["langgraph.*", "langchain_core.*", "matplotlib.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+filterwarnings = [
+    "ignore::DeprecationWarning:langgraph.*",
+]

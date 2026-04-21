@@ -1,0 +1,14 @@
+# Automatic PR review assignment.
+# Replace @manav8498 with actual GitHub users/teams before publishing.
+
+# Default owners for everything
+*                                   @manav8498
+
+# Core library — any change here warrants careful review
+/swarmweave/                     @manav8498
+/tests/                             @manav8498
+
+# Docs and community files — lighter review
+/docs/                              @manav8498
+/README.md                          @manav8498
+/CHANGELOG.md                       @manav8498
