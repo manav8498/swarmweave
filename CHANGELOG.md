@@ -7,7 +7,7 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [0.1.0] — 2026-04-20
 
-First public release. v0.1.0 is a clean-history publish — development and iteration history lives in the author's private repo. The public repo starts here.
+First public release.
 
 ### Core library
 
