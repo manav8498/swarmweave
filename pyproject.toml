@@ -51,7 +51,7 @@ dependencies = [
     "langchain-core>=0.3.0,<2.0",
     "pydantic>=2.0,<3.0",
     "python-dotenv>=1.0,<2.0",
-    "rich>=13.7,<15.0",
+    "rich>=13.7,<16.0",
 ]
 
 [project.optional-dependencies]
